@@ -1,12 +1,298 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My GitHub Pages Site</title>
+    <title>極みの一杯｜麺処 一期一会</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-red: #b30000; /* 食欲をそそる赤 */
+        --dark-red: #7a0000;
+        --black: #1a1a1a;
+        --white: #ffffff;
+        --gold: #d4af37;
+      }
+
+      /* スムーズスクロール有効化 */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Noto Sans JP", sans-serif;
+        color: var(--black);
+        background-color: #fdfdfd;
+      }
+
+      h1,
+      h2,
+      .font-serif {
+        font-family: "Noto Serif JP", serif;
+      }
+
+      /* ヘッダー */
+      header {
+        background-color: rgba(26, 26, 26, 0.9);
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 1.5rem;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: var(--gold);
+      }
+
+      /* ヒーローエリア */
+      .hero {
+        height: 80vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&q=80&w=1500")
+            no-repeat center/cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .hero h2 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+      }
+
+      /* セクション共通 */
+      section {
+        padding: 5rem 1rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2rem;
+        color: var(--primary-red);
+        border-bottom: 3px solid var(--primary-red);
+        display: table;
+        margin: 0 auto 3rem;
+        padding-bottom: 0.5rem;
+      }
+
+      /* メニュー（ホバーエフェクト） */
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .menu-item {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.4s, box-shadow 0.4s;
+        cursor: pointer;
+      }
+
+      .menu-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(179, 0, 0, 0.2);
+        border-color: var(--primary-red);
+      }
+
+      .menu-img {
+        width: 100%;
+        height: 200px;
+        background-color: #eee;
+        object-fit: cover;
+      }
+
+      .menu-info {
+        padding: 1.5rem;
+      }
+
+      /* カレンダー・住所 */
+      .info-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .calendar,
+      .access {
+        background: #fff5f5;
+        padding: 2rem;
+        border-radius: 10px;
+        border-left: 5px solid var(--primary-red);
+      }
+
+      .sns-links {
+        text-align: center;
+        margin-top: 3rem;
+      }
+
+      .sns-button {
+        display: inline-block;
+        margin: 0 1rem;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: opacity 0.3s, transform 0.3s;
+      }
+
+      .sns-button:hover {
+        transform: scale(1.1);
+        opacity: 0.9;
+      }
+
+      .twitter {
+        background: #1da1f2;
+      }
+      .instagram {
+        background: linear-gradient(
+          45deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+      }
+
+      footer {
+        background-color: var(--black);
+        color: white;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      /* スマホ対応 */
+      @media (max-width: 600px) {
+        .hero h2 {
+          font-size: 2rem;
+        }
+        nav a {
+          margin: 0 0.5rem;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>Welcome to My GitHub Pages Site</h1>
-    <p>This is my first GitHub Pages deployment!</p>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#menu">お品書き</a></li>
+          <li><a href="#calendar">営業日</a></li>
+          <li><a href="#access">地図・住所</a></li>
+          <li><a href="#sns">SNS</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h2>魂を込めた、至高の一杯。</h2>
+      <p>厳選素材と秘伝のスープが織りなす極上の時間</p>
+    </div>
+
+    <section id="menu">
+      <h2 class="section-title">お品書き</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div
+            class="menu-img"
+            style="
+              background: url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&q=80&w=500')
+                center/cover;
+            "
+          ></div>
+          <div class="menu-info">
+            <h3>特製 醤油ラーメン</h3>
+            <p>850円</p>
+            <small>創業当時から変わらぬ、深みのある鶏ガラ醤油。</small>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div
+            class="menu-img"
+            style="
+              background: url('https://images.unsplash.com/photo-1591814468924-caf88d1232e1?auto=format&fit=crop&q=80&w=500')
+                center/cover;
+            "
+          ></div>
+          <div class="menu-info">
+            <h3>濃厚 味噌バター</h3>
+            <p>950円</p>
+            <small>厳選した3種の味噌をブレンドした、コク深い味わい。</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calendar" style="background-color: #fff">
+      <h2 class="section-title">営業のご案内</h2>
+      <div class="info-container">
+        <div class="calendar">
+          <h3>今月の営業日</h3>
+          <p>月〜土：11:00 - 22:00</p>
+          <p>日・祝：11:00 - 20:00</p>
+          <p><strong>定休日：毎週水曜日</strong></p>
+        </div>
+        <div id="access" class="access">
+          <h3>アクセス</h3>
+          <p>〒123-4567<br />東京都〇〇区△△町 1-2-3</p>
+          <p>〇〇駅 徒歩5分</p>
+          <p>TEL: 03-xxxx-xxxx</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sns">
+      <h2 class="section-title">最新情報をチェック</h2>
+      <div class="sns-links">
+        <a href="https://twitter.com" target="_blank" class="sns-button twitter"
+          >X (Twitter)</a
+        >
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          class="sns-button instagram"
+          >Instagram</a
+        >
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 麺処 一期一会</p>
+    </footer>
   </body>
 </html>
